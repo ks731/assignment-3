@@ -47,12 +47,10 @@ class Credits extends Component {
       <div>
         <h1>Credits</h1>
         
-        {/* Display Account Balance */}
         <AccountBalance accountBalance={this.props.accountBalance} />
         
         <br/>
         
-        {/* Credits List Section */}
         <div>
           <h2>Credits List</h2>
           <ul>
@@ -68,7 +66,6 @@ class Credits extends Component {
 
         <br/>
         
-        {/* Add Credit Form Section */}
         <div>
           <h2>Add New Credit</h2>
           <form onSubmit={this.handleSubmit}>
