@@ -74,7 +74,7 @@ class App extends Component {
       date: new Date().toISOString().split('T')[0]
     };
     const updatedDebits = [...this.state.debits, newDebit];
-    this.setState({debit: updatedDebits}, () =>{
+    this.setState({debits: updatedDebits}, () =>{
       this.calculateBalance();
     });
   }
