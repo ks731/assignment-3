@@ -60,7 +60,7 @@ class Credits extends Component {
               <li key={credit.id}>
                 <strong>{credit.description}</strong>: 
                 ${credit.amount.toFixed(2)} - 
-                Date: {credit.date}
+                Date: {credit.date.split('T')[0]}
               </li>
             ))}
           </ul>
