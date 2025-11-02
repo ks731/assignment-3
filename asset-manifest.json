@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/ks731/assignment-3static/css/main.99f3aaac.chunk.css",
-    "main.js": "/ks731/assignment-3static/js/main.bcde9694.chunk.js",
-    "main.js.map": "/ks731/assignment-3static/js/main.bcde9694.chunk.js.map",
-    "runtime-main.js": "/ks731/assignment-3static/js/runtime-main.56bf19f3.js",
-    "runtime-main.js.map": "/ks731/assignment-3static/js/runtime-main.56bf19f3.js.map",
-    "static/js/2.e29c9f22.chunk.js": "/ks731/assignment-3static/js/2.e29c9f22.chunk.js",
-    "static/js/2.e29c9f22.chunk.js.map": "/ks731/assignment-3static/js/2.e29c9f22.chunk.js.map",
-    "static/js/3.c85fb425.chunk.js": "/ks731/assignment-3static/js/3.c85fb425.chunk.js",
-    "static/js/3.c85fb425.chunk.js.map": "/ks731/assignment-3static/js/3.c85fb425.chunk.js.map",
-    "index.html": "/ks731/assignment-3index.html",
-    "static/css/main.99f3aaac.chunk.css.map": "/ks731/assignment-3static/css/main.99f3aaac.chunk.css.map",
-    "static/js/2.e29c9f22.chunk.js.LICENSE.txt": "/ks731/assignment-3static/js/2.e29c9f22.chunk.js.LICENSE.txt"
+    "main.css": "/ks731/assignment-3/static/css/main.99f3aaac.chunk.css",
+    "main.js": "/ks731/assignment-3/static/js/main.bcde9694.chunk.js",
+    "main.js.map": "/ks731/assignment-3/static/js/main.bcde9694.chunk.js.map",
+    "runtime-main.js": "/ks731/assignment-3/static/js/runtime-main.110569c3.js",
+    "runtime-main.js.map": "/ks731/assignment-3/static/js/runtime-main.110569c3.js.map",
+    "static/js/2.e29c9f22.chunk.js": "/ks731/assignment-3/static/js/2.e29c9f22.chunk.js",
+    "static/js/2.e29c9f22.chunk.js.map": "/ks731/assignment-3/static/js/2.e29c9f22.chunk.js.map",
+    "static/js/3.c85fb425.chunk.js": "/ks731/assignment-3/static/js/3.c85fb425.chunk.js",
+    "static/js/3.c85fb425.chunk.js.map": "/ks731/assignment-3/static/js/3.c85fb425.chunk.js.map",
+    "index.html": "/ks731/assignment-3/index.html",
+    "static/css/main.99f3aaac.chunk.css.map": "/ks731/assignment-3/static/css/main.99f3aaac.chunk.css.map",
+    "static/js/2.e29c9f22.chunk.js.LICENSE.txt": "/ks731/assignment-3/static/js/2.e29c9f22.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.56bf19f3.js",
+    "static/js/runtime-main.110569c3.js",
     "static/js/2.e29c9f22.chunk.js",
     "static/css/main.99f3aaac.chunk.css",
     "static/js/main.bcde9694.chunk.js"
