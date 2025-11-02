@@ -38,7 +38,17 @@ class App extends Component {
       this.calculateBalance();
     })
     .catch(error => console.error('Error fetching credits:', error));
-  }
+
+    fetch('https://johnnylaicode.github.io/api/debits.json')
+    .then(response => response.json())
+    .then(debitsData => {
+      this.setState({debits: debitsData}, () =>{
+        this.calculateBalance();
+      });
+    })
+
+    .catch(error => console.error('Error fetching debits: ', error));
+    }
 
   //calculate account balance
   calculateBalance = () => {
