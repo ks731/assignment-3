@@ -18,14 +18,75 @@ class App extends Component {
   constructor() {  // Create and initialize state
     super(); 
     this.state = {
-      accountBalance: 1234567.89,
-      creditList: [],
-      debitList: [],
+      accountBalance: 0,
+      credits: [],
+      debits: [],
       currentUser: {
         userName: 'Joe Smith',
         memberSince: '11/22/99',
       }
     };
+  }
+
+  //runs when component loads
+  componentDidMount(){
+    //fetch credits data from API
+    fetch('https://johnnylaicode.github.io/api/credits.json')
+    .then(response => response.json())
+    .then(creditsData => {
+      this.setState({ credits: creditsData});
+      this.calculateBalance();
+    })
+    .catch(error => console.error('Error fetching credits:', error));
+
+    fetch('https://johnnylaicode.github.io/api/debits.json')
+    .then(response => response.json())
+    .then(debitsData => {
+      this.setState({debits: debitsData}, () =>{
+        this.calculateBalance();
+      });
+    })
+
+    .catch(error => console.error('Error fetching debits: ', error));
+    }
+
+  //calculate account balance
+  calculateBalance = () => {
+    const totalCredits = this.state.credits.reduce((total, credit) => total + credit.amount, 0);
+    const totalDebits = this.state.debits.reduce((total,debit) => total + debit.amount, 0);
+    const balance = totalCredits - totalDebits;
+    this.setState({
+      accountBalance: parseFloat(balance.toFixed(2)) //round 2 decimal places
+    });
+  }
+
+  //Add new credit and update balance
+  addCredit = (description, amount) => {
+    const newCredit = {
+      id: this.state.credits.length + 1,
+      description: description,
+      amount: parseFloat(amount),
+      date: new Date().toISOString().split('T')[0]
+    };
+
+    const updatedCredits = [...this.state.credits, newCredit];
+    this.setState({credits: updatedCredits}, () =>{
+      this.calculateBalance();
+    });
+  }
+
+  //Add new debit & update balance
+  addDebit = (description, amount) => {
+    const newDebit = {
+      id: this.state.debits.length + 1,
+      description: description, 
+      amount: parseFloat(amount), 
+      date: new Date().toISOString().split('T')[0]
+    };
+    const updatedDebits = [...this.state.debits, newDebit];
+    this.setState({debits: updatedDebits}, () =>{
+      this.calculateBalance();
+    });
   }
 
   // Update state's currentUser (userName) after "Log In" button is clicked
@@ -43,8 +104,20 @@ class App extends Component {
       <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince} />
     )
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />)
-    const CreditsComponent = () => (<Credits credits={this.state.creditList} />) 
-    const DebitsComponent = () => (<Debits debits={this.state.debitList} />) 
+    const CreditsComponent = () => (
+      <Credits
+      credits={this.state.credits}
+      addCredit={this.addCredit}
+      accountBalance={this.state.accountBalance}
+      />
+    )
+    const DebitsComponent = () => (
+      <Debits
+      debits={this.state.debits}
+      addDebit={this.addDebit}
+      accountBalance={this.state.accountBalance}
+      />
+    )
 
     // Important: Include the "basename" in Router, which is needed for deploying the React app to GitHub Pages
     return (
